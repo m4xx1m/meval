@@ -81,7 +81,7 @@ async def meval(code, globs, **kwargs):
     mod.body = [fun]
     comp = compile(mod, "<string>", "exec")
 
-    exec(comp, {}, locs)
+    exec(comp, globs, locs)
 
     r = await locs["tmp"](**kwargs)
     for i in range(len(r)):
